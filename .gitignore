@@ -1,0 +1,3 @@
+*.log
+*.swp
+local_settings.py
