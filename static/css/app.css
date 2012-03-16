@@ -1,6 +1,10 @@
 body {
-  background-color: #eee;
+  background-color: #f1f1f1;
   padding-top: 50px;
+}
+div.hero-unit {
+  background-color: #dedede;
+  border: 1px solid #a1a1a1;
 }
 .content {
 }
