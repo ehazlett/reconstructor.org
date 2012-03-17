@@ -2,6 +2,7 @@ var express = require('express')
   , routes = require('./routes')
   , mongoose = require('mongoose')
   , settings = require('./settings').settings
+  , schema = require('./lib/schema')
 
 app = module.exports.server = express.createServer();
 
@@ -13,7 +14,9 @@ app.configure(function(){
     });
     app.set('appTitle', 'reconstructor');
     app.set('appVersion', '0.1.0');
+    app.set('SECRET_KEY', settings.SECRET_KEY);
     app.set('DB_HOST', settings.DB_HOST);
+    app.set('DB_PORT', settings.DB_PORT);
     app.set('DB_NAME', settings.DB_NAME);
     app.set('DB_USER', settings.DB_USER);
     app.set('DB_PASS', settings.DB_PASS);

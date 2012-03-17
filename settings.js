@@ -5,7 +5,9 @@ try {
 }
 
 exports.settings = {
+    SECRET_KEY: local.SECRET_KEY || 'secretkeyhere',
     DB_HOST: local.DB_HOST || 'localhost',
+    DB_PORT: local.DB_PORT || 27017,
     DB_NAME: local.DB_NAME || 'reconstructor',
     DB_USER: local.DB_USER || '',
     DB_PASS: local.DB_PASS || ''
