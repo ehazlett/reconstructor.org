@@ -1,7 +1,28 @@
 <%- partial('header.ejs') %>
 <div class="container content">
   <div class="hero-unit">
-    <h1><%= title %></h1>
+    <div class="pull-right logo"><a href="https://build.reconstructor.org" target="rec"><img class="thumbnail" src="/img/reconstructor.png"/></a></div>
+    <h1><%=: appTitle | capitalize %></h1>
+    <p>GNU/Linux distribution creation toolkit</p>
+  </div>
+  <div class="row">
+    <div class="span4 section">
+      <h2>Engine</h2>
+      <p>The power behind Reconstructor is the engine.  Our open source engine provides the utility behind customizing and building a custom distribution.  The engine (which is and always will be open source) is available on <a href="http://github.com/lumentica/reconstructor.engine" target="_recgh">Github</a>.</p>
+      <p class="center"><a class="btn btn-primary" href="http://github.com/lumentica/reconstructor.engine" target="_recgh">View Source</a></p>
+    </div>
+
+    <div class="span4 section">
+      <h2>Build Service</h2>
+      <p>We realize that not everyone has the time (or simply wants an easier interface) to clone our source and build a distribution by hand.  With that in mind, we have built a web application that provides a graphical interface to build custom distributions.  We charge $5 for a month's worth of unlimited usage (there are no limits on number of projects, builds, downloads, etc.).</p>
+      <p class="center"><a class="btn btn-primary" href="https://build.reconstructor.org" target="_rec">Sign Up</a></p>
+    </div>
+
+    <div class="span4 section">
+      <h2>Community</h2>
+      <p>We have a active community that is available to provide support.  With options ranging from IRC to email, we are here to help with issues, implement feature requests, or receive any kudos or comments you may have ;)  Give us a shout!</p>
+      <p class="center"><a class="btn btn-primary" href="/explore">Explore</a></p>
+    </div>
   </div>
 </div>
 <%- partial('footer.ejs') %>

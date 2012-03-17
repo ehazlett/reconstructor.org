@@ -29,3 +29,4 @@ app.configure('production', function(){
 
 // Routes
 app.get('/', routes.index);
+app.get('/explore', routes.explore);

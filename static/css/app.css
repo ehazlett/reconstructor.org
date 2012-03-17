@@ -2,9 +2,13 @@ body {
   background-color: #f1f1f1;
   padding-top: 50px;
 }
+div.logo img {
+  position: relative;
+  top: -35px;
+}
 div.hero-unit {
-  background-color: #dedede;
-  border: 1px solid #a1a1a1;
+  background-color: #dfdfdf;
+  border: 1px solid #c5c5c5;
 }
 .content {
 }
@@ -12,17 +16,20 @@ div.hero-unit {
   position: fixed;
   overflow: visible;
   top: 40px;
-  left: 0;
-  right: 0;
+  left: 0px;
+  right: 0px;
   z-index: 999;
+}
+.info {
+  font-size: 18px;
 }
 div#login {
   width: 425px;
-  margin: 0 auto 0 auto;
+  margin: 0px auto 0px auto;
   text-align: center;
 }
 footer {
-  margin: 0 auto 20px auto;
+  margin: 50px auto 20px auto;
   width: 100%;
   color: #b3b3b3;
   text-align: center; /* center align it with the container */
@@ -30,4 +37,14 @@ footer {
 span.info {
   font-size: 18pt;
   color: #a5a5a5;
+}
+div.section h2 {
+  text-align: center;
+}
+.center {
+  margin: 0px auto 0px auto;
+  text-align: center;
+}
+ul#help-list li {
+  margin: 0px 0px 5px 0px;
 }
