@@ -1,0 +1,16 @@
+<%- partial('header.ejs') %>
+<div class="container content">
+  <div class="row">
+    <div class="span4 offset4 center">
+      <form id="form-login" class="well" method="POST">
+        <input type="text" value="" name="username" placeholder="username" />
+        <input type="password" value="" name="password" placeholder="password" />
+        <div class="form-actions">
+          <input type="submit" class="btn btn-primary btn-large" value="Login"/>
+          <a href="#" class="btn btn-large">Forgot</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<%- partial('footer.ejs') %>

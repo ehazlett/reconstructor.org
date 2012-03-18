@@ -3,6 +3,10 @@ var express = require('express')
   , mongoose = require('mongoose')
   , settings = require('./settings').settings
   , schema = require('./lib/schema')
+  , explore = require('./routes/explore')
+  , user = require('./routes/user')
+
+var RedisStore = require('connect-redis')(express);
 
 app = module.exports.server = express.createServer();
 
@@ -22,6 +26,8 @@ app.configure(function(){
     app.set('DB_PASS', settings.DB_PASS);
     app.use(express.bodyParser());
     app.use(express.methodOverride());
+    app.use(express.cookieParser());
+    app.use(express.session({ secret: settings.SESSION_SECRET, store: new RedisStore }));
     app.use(app.router);
     app.use(express.static(__dirname + '/static'));
 });
@@ -41,4 +47,6 @@ app.configure('production', function(){
 
 // Routes
 app.get('/', routes.index);
-app.get('/explore', routes.explore);
+app.get('/explore', explore.index);
+app.get('/login', user.login);
+app.post('/login', user.login_post);
