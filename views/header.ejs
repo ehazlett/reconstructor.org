@@ -23,8 +23,20 @@
     <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
   </head>
   <body>
-    <% if (false) { %>
-    <div id="messages" class="hide">
+    <% if (flash) { %>
+    <div id="messages" class="">
+      <% for (var i in flash.info) { %> 
+      <div class="alert alert-info">
+        <a class="close" data-dismiss="alert">×</a>
+        <%= flash.info[i] %>
+      </div>
+      <% } %>
+      <% for (var i in flash.error) { %> 
+      <div class="alert alert-error">
+        <a class="close" data-dismiss="alert">×</a>
+        <%= flash.error[i] %>
+      </div>
+      <% } %>
     </div>
     <% } %>
     <div class="navbar navbar-fixed-top">
