@@ -22,5 +22,9 @@ suite('utils', function() {
             var locals = makeLocals(mockRequest);
             assert.equal(locals.hasOwnProperty('flash'), true);
         });
+        test('request key should exist in locals', function() {
+            var locals = makeLocals(mockRequest);
+            assert.equal(locals.hasOwnProperty('request'), true);
+        });
     });
 });

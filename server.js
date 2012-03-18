@@ -48,5 +48,6 @@ app.configure('production', function(){
 // Routes
 app.get('/', routes.index);
 app.get('/explore', explore.index);
-app.get('/login', user.login);
+app.get('/login', user.login_get);
 app.post('/login', user.login_post);
+app.get('/signup', user.signup_get);

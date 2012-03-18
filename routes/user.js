@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var utils = require('../lib/utils');
 var makeLocals = utils.makeLocals;
 
-exports.login = function(req, res) {
+exports.login_get = function(req, res) {
     var User = utils.getDbConnection().model('User');
     res.render('login.ejs', {
         locals: makeLocals(req, {'title': 'login'})
@@ -18,5 +18,11 @@ exports.login_post = function(req, res) {
             // login user
             res.redirect('/');
         }
+    });
+}
+
+exports.signup_get = function(req, res) {
+    res.render('signup.ejs', {
+        locals: makeLocals(req, {'title': 'signup'})
     });
 }

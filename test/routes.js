@@ -46,4 +46,34 @@ suite('routes', function() {
             });
         });
     });
+    suite('/login', function() {
+        var options = {
+            path: "/login",
+            port: 3001
+        };
+        setup(function() {
+            server.listen(options.port);
+        });
+        test('should return 200', function(done) {
+            http.get(options, function(res) {
+                assert.equal(res.statusCode, 200);
+                done();
+            });
+        });
+    });
+    suite('/signup', function() {
+        var options = {
+            path: "/signup",
+            port: 3001
+        };
+        setup(function() {
+            server.listen(options.port);
+        });
+        test('should return 200', function(done) {
+            http.get(options, function(res) {
+                assert.equal(res.statusCode, 200);
+                done();
+            });
+        });
+    });
 });
