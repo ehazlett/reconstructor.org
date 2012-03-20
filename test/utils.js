@@ -38,10 +38,11 @@ suite('user', function() {
         var userData = {
             username: 'demo1234',
             email: 'demo@demo.local',
+            confirmed: true,
             password: 'demo'
         }
         test('user creation should succeed', function(done) {
-            utils.createUser(userData.username, userData.email, userData.password, function(user) {
+            utils.createUser(userData, function(user) {
                 assert.notEqual(user, null);
                 done();
             });
@@ -52,6 +53,7 @@ suite('user', function() {
                 assert.notEqual(doc.username, undefined);
                 assert.notEqual(doc.email, undefined);
                 assert.notEqual(doc.password, undefined);
+                assert.notEqual(doc.confirmed, false);
                 assert.notEqual(doc.password, userData.password); // make sure password is hashed
                 done();
             });

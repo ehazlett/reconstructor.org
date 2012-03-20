@@ -53,4 +53,5 @@ app.get('/login', user.login_get);
 app.post('/login', user.login_post);
 app.get('/logout/:username', user.logout_get);
 app.get('/signup', user.signup_get);
+app.get('/signup/confirm/:confirmCode', user.signupConfirm_get);
 app.post('/signup', user.signup_post);

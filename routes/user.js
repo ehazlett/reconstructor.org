@@ -3,14 +3,16 @@ var utils = require('../lib/utils');
 var makeLocals = utils.makeLocals;
 
 exports.login_get = function(req, res) {
-    var User = utils.getDbConnection().model('User');
     res.render('login.ejs', {
         locals: makeLocals(req, {'title': 'login'})
     });
 };
 exports.login_post = function(req, res) {
-    utils.loginUser(req, req.body.username, req.body.password, function(err, status) {
-        if (!status) {
+    utils.loginUser(req, req.body.username, req.body.password, function(err, authenticated) {
+        if (err) {
+            req.flash('error', err);
+            res.redirect('/login');
+        } else if (!authenticated) {
             req.flash('error', 'Invalid username/password');
             res.redirect('/login');
         } else {
@@ -59,9 +61,29 @@ exports.signup_post = function(req, res) {
             })
         });
     } else { // everything good ; create account
-        utils.createUser(data.username, data.email, data.password, function(user) {
+        var options = {
+            username: data.username,
+            email: data.email,
+            password: data.password
+        }
+        utils.createUser(options, function(user) {
             req.flash('info', 'Thanks!  Please check your email to confirm your account.');
             res.redirect('/login');
         });
     }
+};
+exports.signupConfirm_get = function(req, res) {
+    var User = utils.getDbConnection().model('User');
+    User.findOne({'confirmCode': req.params.confirmCode}, function(err, user) {
+        if (!user) {
+            req.flash('error', 'Unable to find a user with that code');
+            res.redirect('/');
+        } else {
+            user.confirmed = true;
+            user.save(function() {
+                req.flash('info', 'Your account has been confirmed. Thanks!');
+                res.redirect('/login');
+            });
+        }
+    });
 };
