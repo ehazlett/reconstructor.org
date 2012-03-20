@@ -5,4 +5,4 @@ exports.index = function(req, res) {
     res.render('explore.ejs', {
         locals: makeLocals(req, {'title': 'explore'})
     });
-}
+};

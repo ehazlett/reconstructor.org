@@ -24,6 +24,7 @@ app.configure(function(){
     app.set('DB_NAME', settings.DB_NAME);
     app.set('DB_USER', settings.DB_USER);
     app.set('DB_PASS', settings.DB_PASS);
+    //app.use(express.logger());
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.cookieParser());
@@ -48,5 +49,9 @@ app.configure('production', function(){
 // Routes
 app.get('/', routes.index);
 app.get('/explore', explore.index);
-app.get('/login', user.login);
+app.get('/login', user.login_get);
 app.post('/login', user.login_post);
+app.get('/logout/:username', user.logout_get);
+app.get('/signup', user.signup_get);
+app.get('/signup/confirm/:confirmCode', user.signupConfirm_get);
+app.post('/signup', user.signup_post);

@@ -1,0 +1,18 @@
+<%- partial('header.ejs') %>
+<div class="container content">
+  <div class="row">
+    <div class="span4 offset4 center">
+      <form id="form-signup" class="well" method="POST">
+        <input type="text" value="<%= locals.user ? locals.user.username : ''  %>" name="username" placeholder="username" autofocus="true" />
+        <input type="text" value="<%= locals.user ? locals.user.email : ''  %>" name="email" placeholder="email" />
+        <input type="password" value="" name="password" placeholder="password" />
+        <input type="password" value="" name="passwordConfirm" placeholder="password (confirm)" />
+        <div class="form-actions">
+          <input type="submit" class="btn btn-primary btn-large" value="Signup"/>
+          <a href="/" class="btn btn-large">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<%- partial('footer.ejs') %>
