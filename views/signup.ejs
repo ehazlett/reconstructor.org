@@ -3,8 +3,8 @@
   <div class="row">
     <div class="span4 offset4 center">
       <form id="form-signup" class="well" method="POST">
-        <input type="text" value="" name="username" placeholder="username" />
-        <input type="text" value="" name="email" placeholder="email" />
+        <input type="text" value="<%= locals.user ? locals.user.username : ''  %>" name="username" placeholder="username" autofocus="true" />
+        <input type="text" value="<%= locals.user ? locals.user.email : ''  %>" name="email" placeholder="email" />
         <input type="password" value="" name="password" placeholder="password" />
         <input type="password" value="" name="passwordConfirm" placeholder="password (confirm)" />
         <div class="form-actions">

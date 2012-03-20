@@ -47,12 +47,12 @@
             <ul class="nav">
             </ul>
             <ul class="nav pull-right">
-              <% if (request.session.user) { %>
+              <% if (request.session.username) { %>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">user <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= request.session.username %><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">account</a></li>
-                  <li><a href="#">logout</a></li>
+                  <li><a href="/logout/<%= request.session.username %>">logout</a></li>
                 </ul>
               </li>
               <% } else { %>
