@@ -4,7 +4,7 @@ var express = require('express')
   , settings = require('./settings').settings
   , schema = require('./lib/schema')
   , explore = require('./routes/explore')
-  , user = require('./routes/user')
+  , buildservice = require('./routes/buildservice')
 
 var RedisStore = require('connect-redis')(express);
 
@@ -49,9 +49,4 @@ app.configure('production', function(){
 // Routes
 app.get('/', routes.index);
 app.get('/explore', explore.index);
-app.get('/login', user.login_get);
-app.post('/login', user.login_post);
-app.get('/logout/:username', user.logout_get);
-app.get('/signup', user.signup_get);
-app.get('/signup/confirm/:confirmCode', user.signupConfirm_get);
-app.post('/signup', user.signup_post);
+app.get('/buildservice', buildservice.index);
